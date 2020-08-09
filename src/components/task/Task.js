@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SecondaryButton } from '../../styles/GlobalStyle'
 import { Link } from 'react-router-dom'
+import devices from '../../styles/devices'
 
 const Task = ({ text }) => {
 	const linkStyles = {
@@ -34,6 +35,11 @@ const Container = styled.div`
 const Text = styled.p`
 	color: #fefefe;
 	font-size: 1.5em;
+
+	@media ${devices.mobileL} {
+		text-align: center;
+		max-width: 80vw;
+	}
 `
 
 const Shot = styled.p`

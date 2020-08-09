@@ -3,32 +3,25 @@ import styled from 'styled-components'
 import { FaQuestion } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { getRandomValue } from '../../utils/utils'
+import devices from '../../styles/devices'
 
 const Modal = ({ headerText, isModalOpen }) => {
-	const linkStyles = {
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		textDecoration: 'none',
-		color: '#050505',
-		padding: '5rem',
-	}
 	return (
 		<Container isModalOpen={isModalOpen}>
 			<ContentWrapper>
 				<Header>{headerText}</Header>
 				<FlexWrapper>
 					<ActionBox>
-						<Link to={`truth/${getRandomValue(1, 10)}`} style={linkStyles}>
+						<StyledLink to={`truth/${getRandomValue(1, 10)}`}>
 							<QuestionIcon />
 							<ActionText>Truth</ActionText>
-						</Link>
+						</StyledLink>
 					</ActionBox>
 					<ActionBox>
-						<Link to={`dare/${getRandomValue(1, 10)}`} style={linkStyles}>
+						<StyledLink to={`dare/${getRandomValue(1, 10)}`}>
 							<QuestionIcon />
 							<ActionText>Dare</ActionText>
-						</Link>
+						</StyledLink>
 					</ActionBox>
 				</FlexWrapper>
 			</ContentWrapper>
@@ -56,6 +49,10 @@ const ContentWrapper = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	@media ${devices.mobileL} {
+		padding: 1rem;
+	}
 `
 
 const Header = styled.p`
@@ -76,6 +73,11 @@ const ActionBox = styled.div`
 	flex-direction: column;
 	align-items: center;
 	background-color: #050505;
+
+	@media ${devices.mobileL} {
+		margin: 0.3rem 0.5rem;
+		width: 50%;
+	}
 `
 
 const ActionText = styled.p`
@@ -87,6 +89,19 @@ const ActionText = styled.p`
 const QuestionIcon = styled(FaQuestion)`
 	font-size: 1.3em;
 	color: #fefefe;
+`
+
+const StyledLink = styled(Link)`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: #050505;
+	padding: 5rem;
+
+	@media ${devices.mobileL} {
+		padding: 4rem;
+	}
 `
 
 export default Modal
