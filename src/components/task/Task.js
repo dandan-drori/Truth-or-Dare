@@ -5,20 +5,13 @@ import { Link } from 'react-router-dom'
 import devices from '../../styles/devices'
 
 const Task = ({ text }) => {
-	const linkStyles = {
-		textDecoration: 'none',
-		color: '#fefefe',
-		padding: '0.3rem 1rem',
-	}
 	return (
 		<Container>
 			<Text>{text}</Text>
 			<Text>Or....</Text>
 			<Shot>Drink 1 Shot!</Shot>
 			<Done>
-				<Link to='/' style={linkStyles}>
-					Done
-				</Link>
+				<StyledLink to='/'>Done</StyledLink>
 			</Done>
 		</Container>
 	)
@@ -49,6 +42,12 @@ const Shot = styled.p`
 
 const Done = styled(SecondaryButton)`
 	padding: 0.3rem 0;
+`
+
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: #fefefe;
+	padding: 0.3rem 1rem;
 `
 
 export default Task

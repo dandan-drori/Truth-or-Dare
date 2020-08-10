@@ -10,7 +10,9 @@ const Dare = () => {
 	return (
 		<Container>
 			{dares.map(dare =>
-				dare.id === Number(dareId) ? <Task text={dare.text} /> : null
+				dare.id === Number(dareId) ? (
+					<Task key={dare.id} text={dare.text} />
+				) : null
 			)}
 		</Container>
 	)

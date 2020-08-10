@@ -10,7 +10,9 @@ const Truth = () => {
 	return (
 		<Container>
 			{truths.map(truth =>
-				truth.id === Number(truthId) ? <Task text={truth.text} /> : null
+				truth.id === Number(truthId) ? (
+					<Task key={truth.id} text={truth.text} />
+				) : null
 			)}
 		</Container>
 	)
