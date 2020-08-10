@@ -83,6 +83,10 @@ const dare = (
 			id: 10,
 			text: 'Try to lick your elbow',
 		},
+		{
+			id: 11,
+			text: 'Do the splits',
+		},
 	],
 	{ type, payload }
 ) => {
